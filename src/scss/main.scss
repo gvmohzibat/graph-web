@@ -1,0 +1,23 @@
+@charset"UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:600');
+
+/************************************ variables ************************************/
+
+// urls
+$background_image: "../images/bg.jpg";
+// counts
+$number_of_sections: 3;
+
+/* each section has a circle around the avatar */
+
+// lines
+$middle_img_contianer_width: 370px;
+// z-indexes
+$middle_img_z: 10;
+
+/************************************ styles ************************************/
+
+@import "base.scss";
+@import "modules.scss";
+
+@import "theme.scss";
