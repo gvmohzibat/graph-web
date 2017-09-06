@@ -19,5 +19,26 @@ $middle_img_z: 10;
 
 @import "base.scss";
 @import "modules.scss";
+#nodes-list {
+	th, tr {
+		text-align: center;
+	}
+}
+
+#app {
+	background: #fff;
+	box-shadow: 0 0 20px #ccc;
+	border-radius: 4px;
+}
+
+#graph-container {
+	position: relative;
+	.graph-node {
+		border-radius: 100%;
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+	}
+}
 
 @import "theme.scss";
