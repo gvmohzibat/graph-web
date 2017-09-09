@@ -1,42 +1,34 @@
 import React from 'react';
 import update from 'immutability-helper';
-import {Form, FormControl, FormGroup} from 'react-bootstrap';
+import {Table} from 'react-bootstrap';
+import NodeRow from './NodeRow';
 
 export default class NodesList extends React.Component {
-	/*static propTypes = {
-		name: React.PropTypes.string,
-	};*/
-
 	constructor(props) {
 		super(props);
 		this.state = {
 			nodes: [
-				{name: "vahid", color: "#f90"}
-			],
-			form: {
-				name: null,
-				color: null,
-			}
+				{name: "name", color: "#000000"}
+			]
 		}
 	}
 
 	render() {
-		const {nodes} = this.state;
-		let nodesComp = nodes.map((item, index) => 
-			<tr>
-				<td>{index}</td>
-				<td>x</td>
-				<td id={"node-item-"+index} style={{color: item.color}}>{item.name}</td>
-				<td>item.color</td>
-			</tr>
-		);
+		const {nodes, form} = this.state;
+
+		let nodesComp = nodes.map((item, index) => {
+			return (
+				<NodeRow {...item} key={index} index={index} updateNode={this.updateNode} removeNode={this.removeNode} />
+				);
+			});
+
 		return (
 			<div>
-				<table id="nodes-list">
+				<Table striped bordered condensed hover id="nodes-list">
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>+</th>
+							<th><span class="glyphicon glyphicon-plus add-node-button" aria-hidden="true" onClick={this.handleClickAddNodeButton}></span></th>
 							<th>نام رأس</th>
 							<th>رنگ</th>
 						</tr>
@@ -44,32 +36,28 @@ export default class NodesList extends React.Component {
 					<tbody>
 						{nodesComp}
 					</tbody>
-				</table>
-				<Form inline id="new-node-input" onSubmit={this.handleInputKeyPress}>
-						<FormControl type="text" name="name" bsClass="col-xs-4" placeholder="name" onChange={this.handleFormInputChange} />
-						<FormControl type="text" name="color" bsClass="col-xs-4" placeholder="color" onChange={this.handleFormInputChange} />
-						<FormControl type="submit" value="submit" bsClass="col-xs-4" />
-				</Form>
+				</Table>
 			</div>
 		);
 	}
-	handleFormInputChange = (e) => {
-		const target = e.target;
-	    const value = target.value;
-	    const name = target.name;
-
-	    const {form} = this.state;
-	    form[name] = value;
-		this.setState({form});
-	}
-	handleInputKeyPress = (e) => {
-		const {name,color} = this.state.form;
-		
-		this.setState(update(this.state, {nodes: {$push: [{name, color}]}}));
-
-		e.preventDefault();
-	}
 	getNodes = () => {
 		return this.state.nodes;
+	}
+	addNode = (data) => {
+		this.setState(update(this.state, {nodes: {$push: [{...data}]}}));
+	}
+	handleClickAddNodeButton = (e) => {
+		this.addNode({name: "name", color: "#000000"});
+	}
+	updateNode = (index, fieldName, fieldValue) => {
+		const {nodes} = this.state;
+		nodes[index][fieldName] = fieldValue;
+		
+		this.setState({
+			nodes
+		});
+	}
+	removeNode = (index) => {
+		this.setState(update(this.state, {nodes: {$unset: [index]}}));
 	}
 }

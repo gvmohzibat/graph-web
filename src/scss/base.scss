@@ -4,12 +4,21 @@
 
 body {
 	background: #eee;
-}
-
-table {
-	width: 100%;
+	font-family: sahel, tahoma, sans-serif;
 }
 
 input {
 	max-width: 100%;
+	&[type=color] {
+		padding: 0;
+		min-height: 30px;
+		border:none;
+	}
+	&[type=text] {
+		border: none;
+		border-bottom: 1px solid #aaa;
+		background: #eee;
+		padding: 6px 10px;
+		border-radius: 3px;
+	}
 }

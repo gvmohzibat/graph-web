@@ -1,0 +1,27 @@
+@mixin cursor_grab() {
+	cursor: grab !important;
+	cursor: -moz-grab !important !important;
+	cursor: -webkit-grab !important;
+	cursor: url('https://github.com/bqworks/slider-pro/raw/master/dist/css/images/openhand.cur'), n-resize;
+	/* standard */
+	cursor: url('https://github.com/bqworks/slider-pro/raw/master/dist/css/images/openhand.cur'), n-resize\9;
+	/* IE 8 and below */
+	*cursor: url('https://github.com/bqworks/slider-pro/raw/master/dist/css/images/openhand.cur'), n-resize;
+	/* IE 7 and below */
+	_cursor: url('https://github.com/bqworks/slider-pro/raw/master/dist/css/images/openhand.cur'), n-resize;
+	/* IE 6 */
+}
+
+@mixin cursor_grabbing() {
+	cursor: grabbing !important;
+	cursor: -moz-grabbing !important;
+	cursor: -webkit-grabbing !important;
+	cursor: url('https://github.com/bqworks/slider-pro/raw/master/dist/css/images/closedhand.cur'), n-resize;
+	/* standard */
+	cursor: url('https://github.com/bqworks/slider-pro/raw/master/dist/css/images/closedhand.cur'), n-resize\9;
+	/* IE 8 and below */
+	*cursor: url('https://github.com/bqworks/slider-pro/raw/master/dist/css/images/closedhand.cur'), n-resize;
+	/* IE 7 and below */
+	_cursor: url('https://github.com/bqworks/slider-pro/raw/master/dist/css/images/closedhand.cur'), n-resize;
+	/* IE 6 */
+}

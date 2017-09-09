@@ -3,14 +3,6 @@ import NodesList from './NodesList';
 import {Button} from 'react-bootstrap';
 
 export default class Sidebar extends React.Component {
-	/*static propTypes = {
-		name: React.PropTypes.string,
-	};*/
-
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return (
 			<div>
