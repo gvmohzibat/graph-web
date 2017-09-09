@@ -25,3 +25,5 @@ Then run webpack with NODE_ENV=production
 ```bash
 NODE_ENV=production webpack
 ```
+
+Now open index.html file in your browser.
