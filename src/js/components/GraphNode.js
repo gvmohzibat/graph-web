@@ -34,7 +34,7 @@ export default class GraphNode extends React.Component {
 
 		return (
 			<Draggable
-				bounds={{left: r, top: r, right: containerWidth - (2*r), bottom: containerWidth - (2*r)}}
+				bounds={{left: r, top: r, right: containerWidth - (r), bottom: containerWidth - (r)}}
 				onStart={this.handleDragStart}
 				onDrag={this.handleDrag}
 				onStop={this.handleDragStop}>

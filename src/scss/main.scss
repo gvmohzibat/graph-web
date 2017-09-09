@@ -102,6 +102,7 @@ $middle_img_z: 10;
 		background: #eee;
 		border-radius: 4px;
 		border: 2px solid #a2b7ca;
+		box-sizing: content-box;
 	}
 	.graph-node {
 		@include cursor_grab;
@@ -121,5 +122,3 @@ $middle_img_z: 10;
 		left: 0;
 	}
 }
-
-@import "theme.scss";
