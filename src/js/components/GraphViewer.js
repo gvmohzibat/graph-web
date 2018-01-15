@@ -92,7 +92,7 @@ export default class GraphViewer extends React.Component {
 		const activeNodeComp = this._nodes.get(activeNode);
 		const destNodeComp = this._nodes.get(destNode);
 
-		activeNodeComp.connectToNode(destNode);
+						activeNodeComp.connectToNode(destNode);
 		let connected = destNodeComp.connectToNode(activeNode);
 		
 		if (connected)
@@ -106,8 +106,8 @@ export default class GraphViewer extends React.Component {
 		const activeNodeComp = this._nodes.get(activeNode);
 		const destNodeComp = this._nodes.get(destNode);
 
-		activeNodeComp.disconnectNode(destNode);
-		let disconnected = destNodeComp.disconnectNode(activeNode);
+							activeNodeComp.disconnectNode(destNode);
+		let disconnected =	destNodeComp.disconnectNode(activeNode);
 
 		if (disconnected)
 			this.removeEdge(activeNode, destNode);
@@ -120,15 +120,19 @@ export default class GraphViewer extends React.Component {
 		nodes.forEach((node, i) => {
 			let connectedNodesIndex = this._nodes.get(i).getConnectedNodesIndex();
 
+			// create json for the node
 			let connectedNodesJson = "";
 			connectedNodesIndex.forEach((nodeIndex) => {
 				connectedNodesJson += nodes[nodeIndex].name + ",";
 			})
 			
-			connectedNodesJson = connectedNodesJson.slice(0,-1);
+			connectedNodesJson = connectedNodesJson.slice(0,-1); // remove last comma
 
+			// add created json to output
 			output += node.name + ":" + "{" + connectedNodesJson + "}" + ", ";
-		})
+		});
+
+		// remove last comma and space characters
 		if (nodes.length)
 			output = output.slice(0, -2);
 		output += "}";

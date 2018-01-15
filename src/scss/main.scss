@@ -5,21 +5,6 @@
 	src: url('../fonts/Sahel.eot?#iefix') format('embedded-opentype'), url('../fonts/Sahel.woff') format('woff'), url('../fonts/Sahel.ttf') format('truetype')
 }
 
-
-/************************************ variables ************************************/
-
-// urls
-$background_image: "../images/bg.jpg";
-// counts
-$number_of_sections: 3;
-
-/* each section has a circle around the avatar */
-
-// lines
-$middle_img_contianer_width: 370px;
-// z-indexes
-$middle_img_z: 10;
-
 /************************************ styles ************************************/
 
 @import "base.scss";
